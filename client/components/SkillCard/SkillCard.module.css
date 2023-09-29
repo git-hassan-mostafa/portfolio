@@ -1,0 +1,40 @@
+.skill-card{
+    background-color: var(--dark-color);
+    @apply sm:w-28 sm:h-28 h-24 w-24 relative p-2 overflow-hidden rounded-sm
+}
+
+.skill-card-loader{
+    /* background: #FAFAFC;
+    background: linear-gradient(to right, #8c8c8e 0% , #c7c7d4 50%, #8C8C8E 100%) ; */
+    background-color: var(--dark-color);
+    @apply sm:w-28 sm:h-28 h-24 w-24 relative p-2
+}
+
+.skill-card > .skill-card-data{
+    background-color:#191923e7;
+    color: var(--secondary-text-color);
+    transition: 0.3s ease-in-out;
+    @apply absolute top-0 opacity-0 left-0 w-full h-full text-center p-2 font-bold text-xs sm:text-sm flex flex-col items-center justify-center gap-2
+}
+
+.skill-card:hover > .skill-card-data{
+    
+    @apply opacity-100 
+}
+
+.skill-card:hover > .skill-card-image{
+    @apply object-contain object-center
+}
+
+.skill-card:hover > .skill-card-image{
+    transition: .2s;
+    @apply scale-110 rotate-12 
+}
+
+.skill-card > .skill-card-data > .skill-name{
+    @apply tracking-wider 
+}
+
+.skill-card > .skill-card-data > .skill-percentage{
+ color: var(--secondary-color);
+}

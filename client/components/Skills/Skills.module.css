@@ -1,0 +1,7 @@
+.skills{
+    @apply mt-16 select-none
+}
+
+.skills > .skills-cards{
+    @apply flex gap-3 flex-wrap 
+}

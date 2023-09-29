@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
+:root {
+  --dark-color: #191923;
+  --main-color: #23232D;
+  --opacity-main-color: #23232DFA;
+  --secondary-color: #FFC107;
+  --secondary-text-color: #FAFAFC;
+  --main-text-color: #8c8c8e;
+}
+
+* {
+  @apply box-border
+}
+
+
+body {
+  /* font-family: 'Roboto Flex', sans-serif; */
+  @apply w-full m-0 p-0 h-full overflow-hidden
+}
+
+main.main {
+  background-color: var(--dark-color);
+  @apply flex gap-4 w-full p-3 h-screen overflow-hidden relative
+}
+
+main.main > .black-bar-close{
+  @apply h-screen w-screen bg-black absolute z-30 top-0 left-0 opacity-20 hidden
+}
+
+main.main > .black-bar-close.open{
+  @apply block
+}
+
+
+.sidebar {
+  transition: 0.5s ease-out;
+  background-color: var(--main-color);
+  @apply h-full w-fit overflow-auto z-40
+}
+
+.sidebar.open {
+  @apply left-0
+}
+
+
+/* For WebKit-based browsers like Chrome and Safari */
+*::-webkit-scrollbar {
+  /* display: none; */
+  width: 3px;
+  /* Set the scrollbar width to 5px */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dark-color);
+  /* Background color of the scrollbar track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  /* Color of the scrollbar thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--main-text-color);
+  /* Color of the scrollbar thumb */
+}
+
+* {
+  scrollbar-width: thin;
+  /* Set the scrollbar width to 5px */
+  scrollbar-color: var(--main-text-color) var(--secondary-text-color);
+  /* Color of the thumb and track */
+}
+
+.content {
+  background-color: var(--main-color);
+  @apply h-full w-fit text-white flex-1 p-3 overflow-auto pb-28 scroll-smooth
+}
+
+.nav-bar {
+  transition: all 0.5s ease-out;
+  color: var(--secondary-text-color);
+  background-color: var(--main-color);
+  @apply h-full p-3 flex flex-col gap-4 z-50 
+}
+
+.header{
+  background-color: var(--main-color);
+  @apply sticky -top-3 z-20 py-2 lg:hidden
+}
+
+@media (max-width:850px) {
+  .header {
+    @apply flex
+  }
+
+  .sidebar {
+    @apply absolute -left-full shadow-lg shadow-black
+  }
+
+  main.main {
+    @apply p-0
+  }
+
+  .nav-bar {
+    transform: translateX(50%);
+    background-color: var(--dark-color);
+    box-shadow:
+      0px 5px 9px rgba(0, 0, 0, 0.1);
+    @apply absolute flex-row w-fit right-1/2 h-fit bottom-6 justify-between gap-10 px-5 items-center hover:opacity-100
+  }
+}
+
+@media (max-width:500px) {
+  .nav-bar {
+    width: calc(100% - 24px);
+    @apply px-5 justify-between bottom-3 
+  }
+}
+@media (max-width:400px) {
+  .nav-bar {
+    @apply gap-1
+  }
+}
+
+@media (min-width:851px) {
+  .hamburger-icon {
+    @apply hidden
+  }
+}
+
+@media (max-width:1024px) and (min-width:850px) {
+  .nav-bar.open {
+    @apply flex
+  }
+
+  .header {
+    @apply flex
+  }
+
+  .options-icon {
+    @apply block
+  }
+
+  .nav-bar {
+    display: none;
+    overflow: hidden;
+  }
+}
+@media (max-width:1024px) and (min-width:851px) {
+
+  .header {
+    @apply flex
+  }
+
+  .options-icon {
+    @apply block
+  }
+
+  .nav-bar {
+    display: none;
+    overflow: hidden;
+  }
+}
+
+.nav-bar-hidden{
+  @apply hidden
+}

@@ -1,0 +1,25 @@
+.navigation {
+    transition: 0.2s ease-in-out;
+    color: var(--secondary-text-color);
+    @apply flex flex-col  items-center text-xs 
+}
+
+.navigation:hover .navigation-icon {
+    transition: 0.2s ease-in-out;
+    fill: var(--main-text-color);
+}
+
+.navigation:hover {
+    color: var(--main-text-color);
+}
+
+@media (max-width:500px) {
+    .navigation{
+        font-size: xx-small;
+    }
+  }
+  @media (max-width:400px) {
+    .navigation .navigation-icon{
+        width: 25px;
+    }
+  }

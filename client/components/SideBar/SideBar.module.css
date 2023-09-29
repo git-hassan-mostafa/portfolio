@@ -1,0 +1,124 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+
+ section.personal{
+    background-color: var(--opacity-main-color);
+    color: var(--main-text-color);
+    @apply p-6 pt-4 h-fit shadow-lg text-center sticky top-0 z-10
+}
+
+section.personal > .side-bar-arrow-left{
+    @apply cursor-pointer
+}
+
+@media (min-width:850px) {
+    section.personal > .side-bar-arrow-left {
+        @apply hidden
+    }
+    section.personal{
+        @apply pt-6
+    }
+}
+
+ section.personal > h2.name{
+    color: var(--secondary-text-color);
+    @apply my-1 font-bold tracking-wide
+}
+
+ section.personal > p.speciality{
+    color: var(--main-text-color);
+    @apply text-xs
+}
+
+ section.personal > .avatar{
+    @apply relative w-fit m-auto
+}
+
+ section.personal > .avatar > .avatar-image{
+    
+}
+
+ section.personal > .avatar > .round{
+    background-color: var(--secondary-color);
+    @apply absolute w-4 h-4 rounded-full bottom-0 right-0 z-10  animate-ping
+}
+ section.personal > .avatar > .round-animate{
+    @apply absolute w-4 h-4 rounded-full bottom-0 right-0 z-10 bg-yellow-300 
+}
+
+section.information{
+    @apply pb-20
+}
+
+section.information > .personal-information {
+    @apply p-6 
+}
+
+section.information > .personal-information > .one-info{
+    @apply flex gap-24 justify-between pb-1
+}
+
+section.information > .personal-information >  .one-info > .key{
+    color: var(--secondary-text-color);
+    @apply font-semibold text-sm tracking-wide
+}
+
+section.information > .personal-information >  .one-info > .value{
+    color: var(--main-text-color);
+    @apply  text-sm tracking-wide
+}
+
+section.information > section.languages{
+    @apply flex justify-center gap-3 py-6
+}
+
+section.information > section.languages > .language{
+    @apply text-center
+}
+
+section.information > section.languages > .language > .language-name{
+    color: var(--secondary-text-color);
+    @apply font-bold text-xs tracking-wide
+}
+
+section.information > section.skills{
+    @apply w-5/6 py-6 m-auto flex flex-col gap-3
+}
+
+section.information > section.skills > section.skill{
+    /* @apply  */
+}
+
+section.information > section.skills > section.skill .skill-data{
+    @apply flex justify-between mb-2
+}
+
+section.information > section.skills > section.skill .skill-data > .skill-name{
+    color: var(--secondary-text-color);
+    @apply text-xs
+}
+
+section.information > section.skills > section.skill .skill-data > .skill-percentage{
+    color: var(--main-text-color);
+    @apply text-xs
+}
+
+section.information > section.extra-skills{
+@apply p-6
+}
+
+section.information > section.extra-skills > .extra-skill{
+    color: var(--main-text-color);
+    @apply flex gap-1 items-center text-sm tracking-wide font-semibold
+}
+
+section.information > section.social-media{
+    @apply flex gap-3 justify-center p-6
+}
+
+section.information > section.social-media  .social-media-icon:hover{
+    fill: var(--secondary-text-color);
+    transition: 0.5s;
+}

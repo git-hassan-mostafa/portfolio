@@ -1,0 +1,46 @@
+.landing-box {
+    background-image: url('../../utils/assests/Mountain.jpg');
+    color: var(--secondary-text-color);
+    @apply relative w-full h-auto p-5 sm:p-10 gap-10 flex flex-col items-start justify-center bg-cover bg-center
+}
+
+.landing-box>.landing-page-title {
+    background: #FAFAFC;
+    background: -webkit-linear-gradient(to right, #FAFAFC 0%, #FFC107 100%);
+    background: -moz-linear-gradient(to right, #FAFAFC 0%, #FFC107 100%);
+    background: linear-gradient(to right, #FAFAFC 0%, #FFC107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.3 !important;
+    transition: 1s;
+    animation: gradiant-animation 1s linear infinite alternate;
+    @apply font-bold text-4xl sm:text-5xl
+}
+
+.landing-box>* {
+    @apply z-10
+}
+
+.landing-box>.landing-box-cover {
+    background-color: var(--main-color);
+    @apply w-full h-full absolute left-0 top-0 opacity-80 z-0
+}
+
+.landing-box>.landing-page-paragraph {
+    @apply text-xl font-semibold tracking-wide
+}
+
+.landing-box>.landing-page-paragraph>span {
+    color: var(--secondary-color);
+}
+
+.landing-box  .landing-box-explore-button{
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    transition: 0.5s ;
+    @apply py-3 px-5 tracking-wide font-semibold 
+}
+
+.landing-box  .landing-box-explore-button:hover{
+    transform: translateY(-2px);
+}

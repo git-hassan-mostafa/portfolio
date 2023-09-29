@@ -1,0 +1,44 @@
+
+
+.project-page > .project-details {
+    @apply flex gap-10 flex-wrap
+}
+
+.project-page > .project-details > .project-information > .project-information-section {
+    @apply flex gap-5 mb-3 items-center
+}
+
+.sections-title{
+    color: var(--secondary-text-color);
+    @apply text-lg font-bold mb-1
+}
+
+.sections-value{
+    color: var(--main-text-color);
+    @apply text-xs
+}
+
+.project-page > .project-details > .project-image {
+    @apply grow
+}
+
+.project-page > .project-description {
+    @apply mt-3
+}
+
+
+.project-page > .project-description > .description-text {
+    color: var(--main-text-color);
+    line-height: 1.8!important;
+    @apply text-base
+}
+
+@media (max-width:850px) {
+    
+}
+@media (max-width:1024px) and (min-width:850px) {
+    
+}
+@media (min-width:1024px) {
+    
+}

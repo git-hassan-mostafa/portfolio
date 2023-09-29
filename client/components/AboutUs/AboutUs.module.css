@@ -1,0 +1,21 @@
+.about-us {
+    @apply mt-16
+}
+
+.about-us>.about-us-text {
+    background-color: var(--dark-color);
+    border-left: 4px solid var(--main-text-color);
+    @apply p-4 text-sm bg-cover bg-bottom relative  
+}
+
+.about-us>.about-us-text> p.paragraph {
+    line-height: 1.7 !important;
+    color: var(--secondary-text-color);
+    @apply z-20
+}
+
+@media (min-width:1024px) {
+    .about-us>.about-us-text>p.paragraph{
+        line-height: 1.9!important;
+    }
+}

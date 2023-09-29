@@ -1,0 +1,10 @@
+.progress-bar{
+    width: 100%;
+    background-color: var(--dark-color);
+    height: 3px;
+}
+
+.progress-bar > .progress-line{
+    height: 100%;
+    background-color: var(--secondary-color);
+}

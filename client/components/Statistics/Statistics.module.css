@@ -1,0 +1,13 @@
+.statistics{
+    @apply flex gap-5 sm:gap-10 flex-nowrap mt-8 justify-center
+}
+.statistics > .statistic{
+    color: var(--secondary-text-color);
+    @apply  font-semibold sm:text-base text-sm text-center flex items-center
+    
+}
+
+.statistics > .statistic > .number{
+    color: var(--secondary-color);
+    @apply font-bold  text-xl sm:text-2xl mr-2 sm:mr-4 flex items-center
+}
