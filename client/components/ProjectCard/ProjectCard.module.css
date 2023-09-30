@@ -2,7 +2,7 @@
 .project-card{
     transition: .2s;
     background-color: var(--dark-color);
-    @apply w-60 h-48  relative overflow-hidden
+    @apply w-60 h-40  relative overflow-hidden
 }
 
 .project-card-loader {
@@ -16,7 +16,7 @@
         @apply w-full h-full
     }
     .project-card-loader {
-        @apply w-full h-full
+        @apply w-full h-60
     }
     .link {
         @apply w-full
@@ -40,7 +40,7 @@
 
 .project-card .project-image{
     transition: .2s;
-    @apply w-full h-full
+    @apply w-full h-full object-contain 
 }
 
 .project-card:hover .project-image{

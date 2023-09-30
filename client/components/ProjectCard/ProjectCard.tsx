@@ -38,7 +38,7 @@ export default function ProjectCard({id,
     }
   }} >
     <div className={s['project-card']}>
-      <Image unoptimized className={s['project-image']} width={240} height={180} src={image as string} alt={'image'} />
+      <Image unoptimized loading='lazy' className={s['project-image']} width={240} height={180} src={image as string} alt={'image'} />
       <section className={s["project-details"]}>
         <h1 className={s["project-title"]}>
             {title.toUpperCase()}

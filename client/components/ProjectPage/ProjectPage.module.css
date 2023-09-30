@@ -10,7 +10,7 @@
 
 .sections-title{
     color: var(--secondary-text-color);
-    @apply text-lg font-bold mb-1
+    @apply text-lg mb-1
 }
 
 .sections-value{
