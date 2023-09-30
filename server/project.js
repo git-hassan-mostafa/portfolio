@@ -1,6 +1,7 @@
 import pool from './db.js'
 export async function projects() {
     try {
+        console.log('hello world')
         const result = await pool.query(`SELECT * FROM Projects ORDER BY Id`);
         return result.rows
     } catch (error) {
@@ -24,6 +25,7 @@ export async function project(_, args) {
 
 export async function addProject(_, args) {
     try {
+        console.log('hello world')
         const result = await pool.query(`INSERT INTO Projects (title,link,description,image,skills)
     VALUES ('${args.project.title}', '${args.project.link}', '${args.project.description}','${args.project.image}' , '${args.project.skills}')
     RETURNING *;`);

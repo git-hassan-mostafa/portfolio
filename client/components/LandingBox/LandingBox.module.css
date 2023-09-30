@@ -37,10 +37,10 @@
 .landing-box  .landing-box-explore-button{
     background-color: var(--secondary-color);
     color: var(--dark-color);
-    transition: 0.5s ;
+    transition: 0.2s ;
     @apply py-3 px-5 tracking-wide font-semibold 
 }
 
 .landing-box  .landing-box-explore-button:hover{
-    transform: translateY(-2px);
+    color: var(--secondary-text-color);
 }

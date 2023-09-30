@@ -6,12 +6,12 @@ import SkillCard from '../SkillCard/SkillCard'
 import { useAppoloFetch } from '@/utils/Applo'
 import MouseDownEffect from '../MouseDownEffect/MouseDownEffect'
 import { GQL_GET_SKILLS } from '@/utils/queries'
-import { SkillType } from '@/utils/types'
+import { SkillsType} from '@/utils/types'
 
 
 
 export default function Skills() {
-  const { data, isLoading } = useAppoloFetch<SkillType>(GQL_GET_SKILLS)
+  const { data, isLoading } = useAppoloFetch<SkillsType>(GQL_GET_SKILLS)
   return (
     <div className={s.skills} id='skills'>
       <SectionTitle > Skills </SectionTitle>

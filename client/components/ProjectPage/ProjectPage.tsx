@@ -7,7 +7,6 @@ import { useSearchParams } from 'next/navigation'
 import Technologies from '../SVG/Technologies'
 import colors from '@/utils/colors'
 import URL from '../SVG/URL'
-import y from '../../utils/assests/youtube.webp'
 import SectionTitle from '../SectionTitle/SectionTitle'
 
 export default function ProjectPage() {
@@ -29,7 +28,7 @@ export default function ProjectPage() {
                         <URL size={'30'} color={colors.secondaryColor} />
                         <div>
                             <h1 className={s["sections-title"]}>  project URL </h1>
-                            <Link href={get('link') as string} className={s["sections-value"]}> {get('link')} </Link>
+                            <Link target='_blank' href={get('link') as string} className={s["sections-value"]}> {get('link')} </Link>
                         </div>
                     </div>
                 </div>

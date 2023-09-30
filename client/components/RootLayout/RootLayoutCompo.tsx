@@ -7,11 +7,7 @@ import colors from '@/utils/colors'
 import NavBar from '../NavBar/NavBar'
 import Options from '../SVG/Options'
 import { ApolloClient, ApolloProvider, InMemoryCache, gql } from '@apollo/client'
-
-const client = new ApolloClient({
-    uri: 'http://localhost:4000/',
-    cache: new InMemoryCache(),
-  });
+import { client } from '@/utils/ApploClient'
 
 export default function RootLayout({
     children,

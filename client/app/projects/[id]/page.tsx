@@ -5,6 +5,14 @@ import { ProjectType, ProjectsType } from '@/utils/types'
 import { gql } from '@apollo/client'
 import React from 'react'
 
+export default function page() {
+  return (
+    <div>
+      <ProjectPage />
+    </div>
+  )
+}
+
 export async function generateStaticParams() {
   const data= await client.query({
     query: gql(GQL_GET_PROJECTS),
@@ -17,12 +25,4 @@ export async function generateStaticParams() {
     skills: project.skills.replaceAll(' ','00'),
     description:project.description.replaceAll(' ','00')
   }))
-}
-
-export default function page() {
-  return (
-    <div>
-      <ProjectPage />
-    </div>
-  )
 }
