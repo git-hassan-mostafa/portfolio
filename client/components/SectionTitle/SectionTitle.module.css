@@ -1,6 +1,6 @@
 .section-title {
     color: var(--secondary-text-color);
-    @apply w-fit ml-3 relative mb-5 font-bold text-2xl before:absolute before:w-1 before:h-full before:-left-3 rounded-md hover:before:opacity-0 cursor-default
+    @apply w-fit ml-3 relative mb-5 font-bold text-2xl before:absolute before:w-1 before:h-full before:-left-3 rounded-md hover:before:opacity-0 cursor-default tracking-wide
 }
 .section-title::before{
     background-color: var(--secondary-color);

@@ -10,7 +10,6 @@ import URL from '../SVG/URL'
 import SectionTitle from '../SectionTitle/SectionTitle'
 
 export default function ProjectPage() {
-
     const { get } = useSearchParams()
     return (
         <div className={s['project-page']}>
@@ -36,8 +35,7 @@ export default function ProjectPage() {
             
             <div className={s["project-description"]}>
                 <SectionTitle> Description </SectionTitle>
-                <p className={s["description-text"]}> {get('description')} </p>
-                
+                {get('description')?.split('. ').map((d,i)=><p className={s["description-text"]}  key={i}> {d}{'.'} </p>)}
             </div>
         </div>
     )

@@ -1,7 +1,6 @@
 import pool from './db.js'
 export async function projects() {
     try {
-        console.log('hello world')
         const result = await pool.query(`SELECT * FROM Projects ORDER BY Id`);
         return result.rows
     } catch (error) {

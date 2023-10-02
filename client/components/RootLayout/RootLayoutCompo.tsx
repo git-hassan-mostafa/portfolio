@@ -21,8 +21,7 @@ export default function RootLayout({
         document.querySelector('.nav-bar')?.classList.toggle('nav-bar-hidden')
     }
     const handleNavBarOpen = ()=>{
-        document.querySelector('.nav-bar')?.classList.toggle('open')
-        
+        document.querySelector('.nav-bar')?.classList.toggle('open')        
     }
     return (
         <ApolloProvider client={client}>
