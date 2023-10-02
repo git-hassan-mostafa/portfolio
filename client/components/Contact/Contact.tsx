@@ -26,7 +26,7 @@ export default function Contact() {
             <textarea ref={messageRef} name="textarea" id="textarea" rows={10} cols={50} required></textarea>
           </div>
           <div className={s["form-group"]}>
-            <label > Note: By sending this form you will be redirected to my whatsapp chat with your name and message. </label>
+            <label > Note: By submitting this form you will be redirected to my whatsapp chat with your name and message. </label>
           </div>
           <button className={s["form-submit-btn"]} type="submit">Submit</button>
         </form>

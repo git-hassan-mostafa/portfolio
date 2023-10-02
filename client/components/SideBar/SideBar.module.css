@@ -49,7 +49,7 @@ section.personal > .side-bar-arrow-left{
 }
 
 section.information{
-    @apply pb-20
+    @apply pb-44
 }
 
 section.information > .personal-information {
