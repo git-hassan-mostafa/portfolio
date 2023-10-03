@@ -8,7 +8,7 @@
 .project-card-loader {
     transition: .2s;
     background-color: var(--dark-color);
-    @apply w-60 h-40  relative overflow-hidden
+    @apply w-60 h-40  relative overflow-hidden animate-pulse
 }
 
 @media (max-width:527px) {

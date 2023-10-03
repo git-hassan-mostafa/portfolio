@@ -13,7 +13,8 @@ const supabase = createClient(process.env.PROJECT_URL as string, process.env.API
 export default function page() {
     const [file, setFile] = React.useState<File | null>(null);
     const [fileName, setFileName] = React.useState<string | null>(null);
-    const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+    const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(false)
     const projectNameRef = React.useRef<HTMLInputElement>(null)
     const projectLinkRef = React.useRef<HTMLInputElement>(null)
     const projectDescriptionRef = React.useRef<HTMLTextAreaElement>(null)
@@ -23,11 +24,11 @@ export default function page() {
 
     const [addProject] = useMutation(GQL_ADD_PROJECTS)
     const handleSelectFile = (e: ChangeEvent<HTMLInputElement>) => {
-        if(e.target.files) {
+        if (e.target.files) {
             setFile(e.target.files[0])
-            setFileName(e.target.files[0].name+`${(Math.random()*100).toFixed(2)}`)
+            setFileName(e.target.files[0].name + `${(Math.random() * 100).toFixed(2)}`)
         }
-            
+
         const file = e?.target?.files?.[0];
         if (file) {
             console.log(file)
@@ -40,6 +41,7 @@ export default function page() {
     const handleAddproject = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
+            setIsLoading(true)
             const { data, error } = await supabase.storage
                 .from('images')
                 .upload(`projects-images/${fileName}`, file as File, {
@@ -67,9 +69,12 @@ export default function page() {
                 }
             }
             else {
+
                 console.error(error)
             }
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             console.log(error)
         }
 
@@ -99,7 +104,7 @@ export default function page() {
                 project link : <input className='text-black' ref={projectLinkRef} type="text" name="" id="" /> <br /> <br />
                 project description : <textarea className='text-black' ref={projectDescriptionRef} name="" id="" /> <br /> <br />
                 project skills : <input className='text-black' ref={projectSkillsRef} type="text" name="" id="" /> <br /> <br />
-                <button type='submit'>submit</button> <br />
+                <button type='submit'>{isLoading?'loading':'submit'}</button> <br />
             </form>
             <br /><br /><br />
             {

@@ -7,7 +7,7 @@
     /* background: #FAFAFC;
     background: linear-gradient(to right, #8c8c8e 0% , #c7c7d4 50%, #8C8C8E 100%) ; */
     background-color: var(--dark-color);
-    @apply sm:w-28 sm:h-28 h-24 w-24 relative p-2
+    @apply sm:w-28 sm:h-28 h-24 w-24 relative p-2 animate-pulse
 }
 
 .skill-card > .skill-card-data{

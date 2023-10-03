@@ -28,6 +28,8 @@ export async function addProject(_, args) {
         const result = await pool.query(`INSERT INTO Projects (title,link,description,image,skills)
     VALUES ('${args.project.title}', '${args.project.link}', '${args.project.description}','${args.project.image}' , '${args.project.skills}')
     RETURNING *;`);
+    console.log('after')
+    console.log(result)
         return result.rows[0]
     } catch (error) {
         return JSON.stringify({

@@ -6,7 +6,8 @@ import { resolvers } from './resolvers.js';
 
 
 //connect to to the database
-await client.connect()
+
+await client.connect();
 
 //connect to appolo server
 const server = new ApolloServer({

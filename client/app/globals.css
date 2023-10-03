@@ -79,7 +79,7 @@ main.main > .black-bar-close.open{
 
 .content {
   background-color: var(--main-color);
-  @apply h-full w-fit text-white flex-1 p-3 overflow-auto pb-44 scroll-smooth
+  @apply h-full w-fit text-white flex-1 p-3 overflow-auto pb-3 scroll-smooth
 }
 
 
@@ -87,7 +87,7 @@ main.main > .black-bar-close.open{
   transition: all 0.5s ease-out;
   color: var(--secondary-text-color);
   background-color: var(--main-color);
-  @apply h-full p-3 flex flex-col gap-4 z-50 
+  @apply h-full p-3 flex flex-col gap-4 z-50
 }
 
 .header{
@@ -102,6 +102,10 @@ main.main > .black-bar-close.open{
 
   .sidebar {
     @apply absolute -left-full shadow-lg shadow-black
+  }
+
+  .content{
+    @apply pb-44
   }
 
   main.main {

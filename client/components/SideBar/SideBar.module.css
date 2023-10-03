@@ -48,9 +48,12 @@ section.personal > .side-bar-arrow-left{
     @apply absolute w-4 h-4 rounded-full bottom-0 right-0 z-10 bg-yellow-300 
 }
 
-section.information{
+@media (max-width:850px) {
+   section.information{
     @apply pb-44
+} 
 }
+
 
 section.information > .personal-information {
     @apply p-6 
