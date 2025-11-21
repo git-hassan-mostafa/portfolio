@@ -16,7 +16,7 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "graphql": "^16.8.1",
-    "next": "13.4.19",
+    "next": "^13.5.11",
     "nodemailer": "^6.9.5",
     "postcss": "8.4.30",
     "react": "18.2.0",
