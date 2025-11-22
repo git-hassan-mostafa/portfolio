@@ -56,7 +56,7 @@ export default function page() {
         const skillInput = {
           title: skillNameRef.current?.value,
           percentage: Number(skillPerentageRef.current?.value),
-          image: `${process.env.PROJECT_URL}/storage/v1/object/public/images/${data?.path}`,
+          image: `${data?.path}`,
         };
         const { data: skillData } = await addSkill({
           variables: {
