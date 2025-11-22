@@ -131,7 +131,7 @@ export default function page() {
             onClick={() =>
               projectService.handleDeleteProject(
                 project.id,
-                (project.image as string).split("/images/")[1]
+                project.image as string
               )
             }
             className="bg-white text-black"

@@ -105,10 +105,7 @@ export default function page() {
               <span> {skill.title} </span>
               <button
                 onClick={() =>
-                  skillService.handleDeleteSkill(
-                    skill.id,
-                    skill.image.split("/images/")[1]
-                  )
+                  skillService.handleDeleteSkill(skill.id, skill.image)
                 }
                 className="bg-white text-black"
               >
