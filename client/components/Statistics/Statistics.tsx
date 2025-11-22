@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
 import s from "./Statistics.module.css";
-import { useAppoloFetch } from "@/utils/Applo";
-import { GQL_GET_PROJECTS } from "@/utils/queries";
-import { ProjectsType } from "@/utils/types";
+import { useProjects } from "@/utils/Hooks/useProjects";
+
 export default function Statistics() {
-  const { data, isLoading } = useAppoloFetch<ProjectsType>(GQL_GET_PROJECTS);
+  const { projectsCount, isLoading } = useProjects(false);
   return (
     <div className={s.statistics}>
       <div className={s.statistic}>
@@ -13,10 +12,7 @@ export default function Statistics() {
         years of experience
       </div>
       <div className={s.statistic}>
-        <span className={s.number}>
-          {" "}
-          {isLoading ? "..." : data?.data.projects.length}+{" "}
-        </span>{" "}
+        <span className={s.number}> {isLoading ? "..." : projectsCount}+ </span>{" "}
         projects completed
       </div>
     </div>

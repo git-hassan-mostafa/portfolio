@@ -1,31 +1,21 @@
 "use client";
 import React, { ChangeEvent, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-import { gql, useMutation } from "@apollo/client";
 import Image from "next/image";
 import image from "../../../../../../utils/assests/firebase.png";
-import { useAppoloFetch } from "@/utils/Applo";
-import { SkillsType } from "@/utils/types";
-import {
-  GQL_ADD_SKILLS,
-  GQL_DELETE_SKILLS,
-  GQL_GET_SKILLS,
-} from "@/utils/queries";
+import { SkillType } from "@/utils/types";
+import { useKills } from "@/utils/Hooks/useSkills";
 
-const supabase = createClient(
-  process.env.PROJECT_URL as string,
-  process.env.API_KEY as string
-);
 export default function page() {
+  const [newSkill, setNewSkill] = useState<SkillType>({
+    title: "",
+    percentage: 0,
+    image: "",
+  } as SkillType);
   const [file, setFile] = React.useState<File | null>(null);
   const [fileName, setFileName] = React.useState<string | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
-  const skillNameRef = React.useRef<HTMLInputElement>(null);
-  const skillPerentageRef = React.useRef<HTMLInputElement>(null);
-  const [addSkill] = useMutation(GQL_ADD_SKILLS);
-  const [deleteSkill] = useMutation(GQL_DELETE_SKILLS);
 
-  const { data, refetch } = useAppoloFetch<SkillsType>(GQL_GET_SKILLS);
+  const skillService = useKills();
 
   const handleSelectFile = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -45,46 +35,13 @@ export default function page() {
 
   const handleAddSkill = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const { data, error } = await supabase.storage
-        .from("images")
-        .upload(`skills-images/${fileName}`, file as File, {
-          contentType: "image/png",
-          cacheControl: "3600",
-        });
-      if (data) {
-        const skillInput = {
-          title: skillNameRef.current?.value,
-          percentage: Number(skillPerentageRef.current?.value),
-          image: `${data?.path}`,
-        };
-        const { data: skillData } = await addSkill({
-          variables: {
-            skill: skillInput,
-          },
-        });
-        console.log(skillData);
-      } else {
-        console.error(error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    await skillService.handleAddSkill(
+      newSkill as SkillType,
+      file as File,
+      fileName as string
+    );
   };
 
-  const handleDeleteSkill = async (id: string, path: string) => {
-    const { data } = await deleteSkill({
-      variables: {
-        id,
-      },
-    });
-    if (data) {
-      const { data, error } = await supabase.storage
-        .from("images")
-        .remove([path]);
-      console.log(data);
-    }
-  };
   return (
     <>
       <form onSubmit={handleAddSkill}>
@@ -107,7 +64,10 @@ export default function page() {
         skill Name :{" "}
         <input
           className="text-black"
-          ref={skillNameRef}
+          value={newSkill.title}
+          onChange={(e) =>
+            setNewSkill((prev) => ({ ...prev, title: e.target.value }))
+          }
           type="text"
           name=""
           id=""
@@ -116,31 +76,47 @@ export default function page() {
         skill percentage :{" "}
         <input
           className="text-black"
-          ref={skillPerentageRef}
+          value={newSkill.percentage}
+          onChange={(e) =>
+            setNewSkill((prev) => ({
+              ...prev,
+              percentage: Number(e.target.value),
+            }))
+          }
           type="number"
           name=""
           id=""
         />{" "}
         <br /> <br />
-        <button type="submit">submit</button> <br />
+        {skillService.isSaveLoading ? (
+          "loading..."
+        ) : (
+          <button type="submit">submit</button>
+        )}
+        <br />
         <br />
         <br />
         <br /> <br /> <br />
       </form>
-      {data?.data.skills.map((skill) => (
-        <div key={skill.id}>
-          <span> {skill.title} </span>
-          <button
-            onClick={() =>
-              handleDeleteSkill(skill.id, skill.image.split("/images/")[1])
-            }
-            className="bg-white text-black"
-          >
-            {" "}
-            delete{" "}
-          </button>
-        </div>
-      ))}
+      {skillService.isLoading
+        ? "loading..."
+        : skillService.skills.map((skill) => (
+            <div key={skill.id}>
+              <span> {skill.title} </span>
+              <button
+                onClick={() =>
+                  skillService.handleDeleteSkill(
+                    skill.id,
+                    skill.image.split("/images/")[1]
+                  )
+                }
+                className="bg-white text-black"
+              >
+                {" "}
+                {skillService.isDeleteLoading ? "loading..." : "delete "}
+              </button>
+            </div>
+          ))}
     </>
   );
 }

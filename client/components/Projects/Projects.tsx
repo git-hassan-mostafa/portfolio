@@ -3,14 +3,10 @@ import React from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import s from "./Projects.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import { useAppoloFetch } from "@/utils/Applo";
-import image from "../../utils/assests/cocktail.jpg";
-import { StaticImageData } from "next/image";
-import { GQL_GET_PROJECTS } from "@/utils/queries";
-import { ProjectsType } from "@/utils/types";
+import { useProjects } from "@/utils/Hooks/useProjects";
 
 export default function Projects() {
-  const { data, isLoading } = useAppoloFetch<ProjectsType>(GQL_GET_PROJECTS);
+  const { projects, isLoading } = useProjects();
   return (
     <div className={s["projects"]} id="projects">
       <SectionTitle> Projects </SectionTitle>
@@ -30,7 +26,7 @@ export default function Projects() {
                   description={""}
                 />
               ))
-          : data?.data.projects.map((project) => (
+          : projects.map((project) => (
               <ProjectCard
                 id={project.id}
                 title={project.title}
