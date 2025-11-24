@@ -5,6 +5,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import SkillCard from "../SkillCard/SkillCard";
 import MouseDownEffect from "../MouseDownEffect/MouseDownEffect";
 import { useKills } from "@/utils/Hooks/useSkills";
+import { ImagesUrl } from "@/utils/constants";
 
 export default function Skills() {
   const skillService = useKills();
@@ -23,7 +24,7 @@ export default function Skills() {
                 key={skill.id}
               >
                 <SkillCard
-                  logo={`${process.env.PROJECT_URL}/storage/v1/object/public/images/${skill.image}`}
+                  logo={`${ImagesUrl}${skill.image}`}
                   name={skill.title}
                   percentage={skill.percentage}
                 />

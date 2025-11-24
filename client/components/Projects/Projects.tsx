@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import s from "./Projects.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { useProjects } from "@/utils/Hooks/useProjects";
+import { ImagesUrl } from "@/utils/constants";
 
 export default function Projects() {
   const { projects, isLoading } = useProjects();
@@ -31,7 +31,7 @@ export default function Projects() {
                 id={project.id}
                 title={project.title}
                 link={project.link}
-                image={`${process.env.PROJECT_URL}/storage/v1/object/public/images/${project.image}`}
+                image={`${ImagesUrl}${project.image}`}
                 skills={project.skills}
                 key={project.id}
                 description={project.description}
