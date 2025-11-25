@@ -1,10 +1,9 @@
-import React from "react";
 import s from "./AboutUs.module.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
 export default function AboutUs() {
   return (
     <div className={s["about-us"]} id="about-us">
-      <SectionTitle>About</SectionTitle>
+      <SectionTitle>Summary</SectionTitle>
       <div className={s["about-us-text"]}>
         <p className={s.paragraph}>
           Results-oriented Software Developer and Technical Analyst with 2+

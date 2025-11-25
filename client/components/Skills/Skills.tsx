@@ -14,9 +14,11 @@ export default function Skills() {
       <SectionTitle> Skills </SectionTitle>
       <div className={s["skills-cards"]}>
         {skillService.isLoading
-          ? [1, 2, 3, 4, 5, 6, 7].map((_, i) => (
-              <SkillCard key={i} logo={""} name={""} percentage={0} loader />
-            ))
+          ? "hassanabdelrahmanmostafa"
+              .split("")
+              .map((_, i) => (
+                <SkillCard key={i} logo={""} name={""} percentage={0} loader />
+              ))
           : skillService.skills?.map((skill) => (
               <MouseDownEffect
                 scale={97}

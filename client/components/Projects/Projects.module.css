@@ -1,8 +1,7 @@
-.projects{
-    @apply mt-16  w-full
+.projects {
+  @apply mt-16  w-full;
 }
 
 .projects > .projects-cards {
-    @apply flex gap-5 flex-wrap
+  @apply flex gap-2 flex-wrap;
 }
-

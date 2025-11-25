@@ -123,9 +123,12 @@ export default function ProjectsDashboard() {
                   )
                 }
                 placeholder="Short description"
-                rows={3}
+                rows={6}
               />
-
+              <div
+                className="[&_ul]:list-disc [&_ul]:pl-5 [&_li]:mt-1"
+                dangerouslySetInnerHTML={{ __html: newProject.description }}
+              ></div>
               <label className="text-sm text-gray-300">
                 Skills (comma separated)
               </label>
@@ -159,7 +162,7 @@ export default function ProjectsDashboard() {
       <section className="mt-8">
         <h2 className="text-xl font-medium mb-4">Existing Projects</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="">
           {projectService.projects.map((project) => (
             <div
               key={project.id}
@@ -188,9 +191,10 @@ export default function ProjectsDashboard() {
                     View
                   </a>
                 </div>
-                <p className="text-sm text-gray-300 truncate">
-                  {project.description}
-                </p>
+                <p
+                  className="text-sm text-gray-300 [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mt-1"
+                  dangerouslySetInnerHTML={{ __html: project.description }}
+                ></p>
                 <p className="text-xs text-gray-400 mt-1">{project.skills}</p>
               </div>
 
